@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import List from './components/List';
 import withListLoading from './components/withListLoading';
+import {BrowserRouter , Switch , Route} from 'react-router-dom';
+import AddCart from './components/AddCart';
+
 function App() {
   const ListLoading = withListLoading(List);
   const [appState, setAppState] = useState({
@@ -20,13 +23,21 @@ function App() {
   }, [setAppState]);
   return (
     <div className='App'>
+    <BrowserRouter >
+    <Switch>
+    <Route exact path = '/'>
       <div className='container'>
         <h1>The Shopp-in Cart </h1>
       </div>
       <div className='repo-container'>
         <ListLoading isLoading={appState.loading} repos={appState.repos} />
       </div>
-     
+      </Route>
+      <Route path='/cart'>
+      <AddCart />
+      </Route>
+      </Switch>
+     </BrowserRouter>
     </div>
   );
 }
