@@ -7,11 +7,17 @@ const List = props => {
 
   console.log("count",count)
   
+  
   return (
     <ul>
    
       <h2 className="list-head">Your virtual shopping assistant
-      
+      <h2>{count.length}</h2>
+      {count.map((value, index) => {
+return <li key={index}>{value.title} {value.price}
+
+</li>
+})}
     
      <a href='/cart'> <img className="cart_img" src="https://cdn.icon-icons.com/icons2/1369/PNG/512/-shopping-cart_90604.png" /> </a>
       </h2>
@@ -37,7 +43,9 @@ const List = props => {
   <br />
     <li>{repo.price}</li>
     <addCart title = {repo.title} price = {repo.price}/>
-    <li><a href="#" class="button" onClick={() => setCount([...count,{"title":repo.title , "price" : repo.price}])}>Add to Cart</a></li>
+    <li><a href="#" class="button" onClick={() =>(
+      setCount([...count,{"title":repo.title , "price" : repo.price, "count":count, "id":repo.id}])) }>
+      Add to Cart</a></li>
   </ul>
 </div>
 </div>

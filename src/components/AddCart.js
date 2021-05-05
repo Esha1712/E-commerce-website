@@ -1,6 +1,6 @@
 import React from 'react';
 
- AddCart = () => {
+const AddCart = () => {
    return (
   <h2> Hi hello</h2>
    );
