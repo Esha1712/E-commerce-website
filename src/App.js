@@ -23,21 +23,13 @@ function App() {
   }, [setAppState]);
   return (
     <div className='App'>
-    <BrowserRouter >
-    <Switch>
-    <Route exact path = '/'>
+
       <div className='container'>
         <h1>The Shopp-in Cart </h1>
       </div>
       <div className='repo-container'>
         <ListLoading isLoading={appState.loading} repos={appState.repos} />
       </div>
-      </Route>
-      <Route path='/cart'>
-      <AddCart />
-      </Route>
-      </Switch>
-     </BrowserRouter>
     </div>
   );
 }

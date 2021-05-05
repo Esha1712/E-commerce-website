@@ -7,20 +7,26 @@ const List = props => {
 
   console.log("count",count)
   
-  
+    function handleRemove(id) {
+          console.log("Remove id" , id)
+  }
   return (
+    
+     
     <ul>
-   
-      <h2 className="list-head">Your virtual shopping assistant
+ 
+      <h2 className="list-head">Your virtual shopping assistant</h2>
       <h2>{count.length}</h2>
-      {count.map((value, index) => {
+     
+     {count.map((value, index) => {
 return <li key={index}>{value.title} {value.price}
 
 </li>
+
 })}
     
      <a href='/cart'> <img className="cart_img" src="https://cdn.icon-icons.com/icons2/1369/PNG/512/-shopping-cart_90604.png" /> </a>
-      </h2>
+
    
       {repos.map(repo => {
         return (
@@ -44,9 +50,11 @@ return <li key={index}>{value.title} {value.price}
     <li>{repo.price}</li>
     <addCart title = {repo.title} price = {repo.price}/>
     <li><a href="#" class="button" onClick={() =>(
-      setCount([...count,{"title":repo.title , "price" : repo.price, "count":count, "id":repo.id}])) }>
-      Add to Cart</a></li>
+      setCount([...count,{"title":repo.title , "price" : repo.price, "count":count, "id":repo.id}])) }>Add to Cart</a></li>
   </ul>
+   <button className="remove__button" type="button" onClick={() => handleRemove(repo.id)}>
+            Remove
+          </button>
 </div>
 </div>
 
